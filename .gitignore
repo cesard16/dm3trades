@@ -1,0 +1,36 @@
+# node
+node_modules
+.npm
+npm-debug.log
+
+# build
+.next
+out
+build
+
+# environment
+.env
+.env.local
+.env.production
+.env.development
+.env.*.local
+
+# vercel
+.vercel
+
+# wrangler (cloudflare)
+.wrangler
+
+# os
+.DS_Store
+Thumbs.db
+
+# agents/brain
+.agent
+.agents
+brain/
+
+# lockfiles (optional, but many keep them)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
