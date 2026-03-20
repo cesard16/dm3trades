@@ -322,7 +322,8 @@ export default function AcademyPage() {
                   <span className={cn("text-[10px] font-bold px-3 py-1 rounded-full border tracking-wider", item.badge)}>
                     {item.status}
                   </span>
-                </GlassCard>
+                </div>
+              </GlassCard>
               </motion.div>
             ))}
           </div>
