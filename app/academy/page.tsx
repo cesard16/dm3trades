@@ -147,10 +147,10 @@ export default function AcademyPage() {
 
               {/* Social Proof */}
               <motion.div variants={fadeInUp} className="max-w-sm">
-                <GlassCard className="p-3 flex items-center gap-3 bg-white/[0.02] border-white/5">
-                  <div className="flex -space-x-2">
-                    {[1,2,3,4,5].map(i => (
-                      <div key={i} className="w-8 h-8 rounded-full border-2 border-[#080b09] bg-secondary flex items-center justify-center overflow-hidden">
+                <GlassCard className="p-4 flex items-center gap-4 bg-white/[0.02] border-white/5">
+                  <div className="flex -space-x-3 shrink-0">
+                    {[1,2,3].map(i => (
+                      <div key={i} className="w-10 h-10 rounded-full border-2 border-[#080b09] bg-secondary flex items-center justify-center overflow-hidden relative z-10 shadow-sm">
                         <img 
                           src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${i + 42}`} 
                           alt="Trader"
@@ -159,7 +159,7 @@ export default function AcademyPage() {
                       </div>
                     ))}
                   </div>
-                  <p className="text-[13px] font-medium text-white/70 leading-snug">
+                  <p className="text-sm font-medium text-white/80 leading-snug">
                     {t('academy.socialProof')}
                   </p>
                 </GlassCard>
