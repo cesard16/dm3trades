@@ -33,11 +33,12 @@ export default function HeroSection() {
   return (
     <section className="relative w-full">
       {/* Market Ticker at top, exactly below the 16px header */}
-      <div className="absolute top-16 left-0 right-0 w-full z-30 border-b border-white/5 bg-primary/95 backdrop-blur-md">
+      <div id="hero-ticker-container" className="absolute top-16 left-0 right-0 w-full z-30 border-b border-white/5 bg-primary/95 backdrop-blur-md">
         <MarketTicker items={dummyTicker} />
       </div>
 
       <WavyBackground
+        id="hero-wavy-background"
         containerClassName="min-h-[80vh] md:min-h-[90vh] bg-primary pt-32 md:pt-28 h-auto"
         className="w-full flex-1 flex items-center justify-center"
         waveOpacity={0.5}
@@ -52,27 +53,30 @@ export default function HeroSection() {
         ]}
       >
         <motion.div 
-          className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+          id="hero-content-container"
+          className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-transparent"
           style={{ opacity: scrollOpacity, y: scrollYOffset }}
         >
           <motion.div
+            id="hero-main-motion"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-text-secondary mb-8">
-              <span className="flex h-2 w-2 rounded-full bg-accent animate-pulse" />
-              <span>{t('hero.badge')}</span>
+            <div id="hero-badge-container" className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-text-secondary mb-8">
+              <span id="hero-badge-dot" className="flex h-2 w-2 rounded-full bg-accent animate-pulse" />
+              <span id="hero-badge-text">{t('hero.badge')}</span>
             </div>
 
-            <div className="flex justify-center mb-6 px-1">
-              <h1 className="text-3xl sm:text-5xl md:text-7xl font-extrabold text-white leading-tight tracking-tight">
+            <div id="hero-title-container" className="flex justify-center mb-6 px-1 bg-transparent">
+              <h1 id="hero-main-title" className="text-3xl sm:text-5xl md:text-7xl font-extrabold text-white leading-tight tracking-tight bg-transparent">
                 <TextMarquee
+                  id="hero-marquee"
                   key={language}
-                  prefix={<span>Trading &</span>}
+                  prefix={<span id="hero-title-prefix">Trading &</span>}
                   height="1.5em"
                   speed={1.5}
-                  className="justify-center"
+                  className="justify-center bg-transparent"
                 >
                   {marqueeWords.map((word, i) => (
                     <GradientText key={i} className="pb-1">{word}</GradientText>
@@ -81,19 +85,19 @@ export default function HeroSection() {
               </h1>
             </div>
 
-            <p className="mt-4 text-sm sm:text-lg md:text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed px-4">
+            <p id="hero-description" className="mt-4 text-sm sm:text-lg md:text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed px-4 bg-transparent">
               {t('hero.desc')}
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/insights" passHref legacyBehavior>
-                <Button size="lg" className="w-full sm:w-auto gap-2 group">
+                <Button id="hero-cta-explore" size="lg" className="w-full sm:w-auto gap-2 group">
                   {t('hero.explore')}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
               <Link href="/terminal" passHref legacyBehavior>
-                <Button variant="secondary" size="lg" className="w-full sm:w-auto gap-2">
+                <Button id="hero-cta-terminal" variant="secondary" size="lg" className="w-full sm:w-auto gap-2">
                   <Activity className="w-4 h-4" />
                   {t('nav.terminal')}
                 </Button>

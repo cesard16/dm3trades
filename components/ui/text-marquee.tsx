@@ -9,6 +9,7 @@ interface TextMarqueeProps {
   className?: string;
   prefix?: React.ReactNode;
   height?: string | number;
+  id?: string;
 }
 
 export function TextMarquee({
@@ -17,6 +18,7 @@ export function TextMarquee({
   className,
   prefix,
   height = "1.5em",
+  id,
 }: TextMarqueeProps) {
   const count = React.Children.count(children);
 
@@ -31,8 +33,8 @@ export function TextMarquee({
           }
         `}
       </style>
-      <div className={cn("flex relative", className)}>
-        <div className="flex relative flex-row gap-2 md:gap-4 items-center w-min h-min">
+      <div id={id || "marquee-root"} className={cn("flex relative bg-transparent", className)}>
+        <div id="marquee-inner" className="flex relative flex-row gap-2 md:gap-4 items-center w-min h-min bg-transparent">
           {prefix && (
             <div className="whitespace-pre size-auto relative">
               {prefix}
@@ -40,12 +42,14 @@ export function TextMarquee({
           )}
           
           <div
-            className="relative overflow-hidden"
+            id="marquee-clip-container"
+            className="relative [clip-path:inset(0)] transform-gpu bg-transparent"
             style={{ height: typeof height === "number" ? `${height}px` : height }}
           >
             {/* Invisible measuring tool to set the dynamic fixed width based on longest word */}
             <div 
-              className="grid invisible pointer-events-none h-full items-center" 
+              id="marquee-measurer"
+              className="grid invisible pointer-events-none h-full items-center bg-transparent" 
               aria-hidden="true"
             >
               {React.Children.map(children, (child, index) => (
@@ -56,10 +60,14 @@ export function TextMarquee({
             </div>
 
             {/* Absolute scrolling text */}
-            <div className="absolute inset-x-0 top-0 bottom-0 opacity-100 flex items-center overflow-hidden">
+            <div 
+              id="marquee-scroller-container"
+              className="absolute inset-x-0 top-0 bottom-0 opacity-100 flex items-center [clip-path:inset(0)] transform-gpu isolation-auto mix-blend-normal bg-transparent"
+            >
               
               <div
-                className="relative h-[1.2em] w-full"
+                id="marquee-scroller-inner"
+                className="relative h-[1.2em] w-full bg-transparent"
                 style={{
                   "--count": count,
                   "--speed": speed,
@@ -68,7 +76,8 @@ export function TextMarquee({
                 {React.Children.map(children, (child, index) => (
                   <div
                     key={index}
-                    className="h-[1.2em] flex items-center justify-start"
+                    id={`marquee-item-${index}`}
+                    className="h-[1.2em] flex items-center justify-start bg-transparent"
                     style={{
                       "--index": index,
                       "--origin": `calc((var(--count) - var(--index)) * 100%)`,
