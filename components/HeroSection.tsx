@@ -38,7 +38,7 @@ export default function HeroSection() {
       </div>
 
       <WavyBackground
-        containerClassName="min-h-[90vh] bg-primary pt-28 h-auto"
+        containerClassName="min-h-[80vh] md:min-h-[90vh] bg-primary pt-32 md:pt-28 h-auto"
         className="w-full flex-1 flex items-center justify-center"
         waveOpacity={0.5}
         blur={10}
@@ -65,8 +65,8 @@ export default function HeroSection() {
               <span>{t('hero.badge')}</span>
             </div>
 
-            <div className="flex justify-center mb-6">
-              <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight tracking-tight">
+            <div className="flex justify-center mb-6 px-1">
+              <h1 className="text-3xl sm:text-5xl md:text-7xl font-extrabold text-white leading-tight tracking-tight">
                 <TextMarquee
                   key={language}
                   prefix={<span>Trading &</span>}
@@ -81,7 +81,7 @@ export default function HeroSection() {
               </h1>
             </div>
 
-            <p className="mt-4 text-lg md:text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-4 text-sm sm:text-lg md:text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed px-4">
               {t('hero.desc')}
             </p>
 

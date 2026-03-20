@@ -33,12 +33,12 @@ export default function ToolsPage() {
     <main className="min-h-screen bg-primary">
       <Header />
       
-      <section className="pt-32 pb-16 relative overflow-hidden">
+      <section className="pt-24 md:pt-32 pb-16 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/5 blur-[120px] rounded-full pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="mb-12 max-w-2xl">
-            <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-4">
               {t('tools.title')}
             </h1>
             <p className="text-lg text-text-secondary leading-relaxed">

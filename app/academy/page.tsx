@@ -115,7 +115,7 @@ export default function AcademyPage() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-[radial-gradient(ellipse_at_top,rgba(0,208,132,0.15)_0,transparent_70%)]" />
       </div>
 
-      <section className="flex-1 flex items-center pt-24 pb-16 relative z-10">
+      <section className="flex-1 flex items-center pt-20 md:pt-24 pb-16 relative z-10">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             
@@ -138,7 +138,7 @@ export default function AcademyPage() {
                 </span>
               </motion.div>
 
-              <motion.h1 variants={fadeInUp} className="text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight">
+              <motion.h1 variants={fadeInUp} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight">
                 {t('academy.headline1')}
                 <span className="text-accent block mt-1">
                   {t('academy.headline2')}
@@ -191,7 +191,7 @@ export default function AcademyPage() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="relative lg:ml-auto max-w-sm w-full"
+              className="relative lg:ml-auto w-full max-w-[340px] sm:max-w-sm mx-auto lg:mx-0"
             >
               {/* Main Card with Hover Border */}
               <HoverBorderGradient 
@@ -285,7 +285,7 @@ export default function AcademyPage() {
       </section>
 
       {/* Roadmap Scroll Section */}
-      <section className="py-24 relative z-10 border-t border-white/5">
+      <section className="py-16 md:py-24 relative z-10 border-t border-white/5">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -294,7 +294,7 @@ export default function AcademyPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-extrabold mb-4 tracking-tight">
+            <h2 className="text-2xl md:text-3xl font-extrabold mb-4 tracking-tight">
               {t('academy.roadmapTitle')}
             </h2>
             <p className="text-white/40 max-w-lg mx-auto">
