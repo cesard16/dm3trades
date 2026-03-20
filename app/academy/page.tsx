@@ -175,10 +175,12 @@ export default function AcademyPage() {
                     tabIndex={0}
                     aria-label={`${feat.title}: ${feat.desc}`}
                   >
-                    <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center text-accent mb-3 group-hover:scale-105 transition-transform" aria-hidden="true">
-                      {feat.icon}
+                    <div className="flex items-center gap-4 mb-3">
+                      <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent group-hover:scale-110 transition-transform shrink-0" aria-hidden="true">
+                        {feat.icon}
+                      </div>
+                      <h3 className="text-lg font-bold">{feat.title}</h3>
                     </div>
-                    <h3 className="text-base font-bold mb-1">{feat.title}</h3>
                     <p className="text-[13px] text-white/40 leading-relaxed font-sans">{feat.desc}</p>
                   </div>
                 ))}
@@ -311,8 +313,9 @@ export default function AcademyPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
-                <GlassCard className="p-6 h-full flex flex-col items-center text-center bg-white/[0.01] border-white/5 hover:border-accent/20 transition-all duration-500 group">
-                  <div className={cn("w-3 h-3 rounded-full mb-6 blur-[1px] shadow-[0_0_15px] shadow-current", item.dot)} aria-hidden="true" />
+                <GlassCard className="p-8 h-full bg-white/[0.01] border-white/5 hover:border-accent/20 transition-all duration-500 group">
+                  <div className="flex flex-col items-center text-center h-full">
+                    <div className={cn("w-3 h-3 rounded-full mb-6 blur-[0.1px] shadow-[0_0_15px] shadow-current transition-transform group-hover:scale-125", item.dot)} aria-hidden="true" />
                   <h3 className="text-lg font-bold mb-4 flex-1">
                     {item.title}
                   </h3>
