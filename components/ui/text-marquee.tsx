@@ -33,32 +33,24 @@ export function TextMarquee({
           }
         `}
       </style>
-      <div id={id || "marquee-root"} className={cn("flex relative bg-transparent [isolation:isolate]", className)} style={{ background: 'transparent !important' }}>
-        <div id="marquee-inner" className="flex relative flex-row gap-2 md:gap-4 items-center w-min h-min bg-transparent" style={{ background: 'transparent !important' }}>
+      <div id={id || "marquee-root"} className={cn("flex relative", className)}>
+        <div id="marquee-inner" className="flex relative flex-row gap-2 md:gap-4 items-center w-min h-min">
           {prefix && (
-            <div id="marquee-prefix-container" className="whitespace-pre size-auto relative bg-transparent" style={{ background: 'transparent !important' }}>
+            <div id="marquee-prefix-container" className="whitespace-pre size-auto relative">
               {prefix}
             </div>
           )}
           
           <div
             id="marquee-clip-container"
-            className="relative overflow-hidden bg-transparent"
-            style={{ 
-              height: typeof height === "number" ? `${height}px` : height,
-              background: 'transparent !important',
-              WebkitMaskImage: 'linear-gradient(rgba(0,0,0,0) 0%, rgb(0,0,0) 25%, rgb(0,0,0) 75%, rgba(0,0,0,0) 100%)',
-              maskImage: 'linear-gradient(rgba(0,0,0,0) 0%, rgb(0,0,0) 25%, rgb(0,0,0) 75%, rgba(0,0,0,0) 100%)',
-              WebkitBackfaceVisibility: 'hidden',
-              backfaceVisibility: 'hidden'
-            }}
+            className="relative overflow-hidden"
+            style={{ height: typeof height === "number" ? `${height}px` : height }}
           >
             {/* Invisible measuring tool to set the dynamic fixed width based on longest word */}
             <div 
               id="marquee-measurer"
-              className="grid invisible pointer-events-none h-full items-center bg-transparent" 
+              className="grid invisible pointer-events-none h-full items-center" 
               aria-hidden="true"
-              style={{ background: 'transparent !important' }}
             >
               {React.Children.map(children, (child, index) => (
                 <div key={index} className="col-start-1 row-start-1 flex items-center h-[1.2em] justify-start pr-1">
@@ -67,28 +59,29 @@ export function TextMarquee({
               ))}
             </div>
 
+            {/* Absolute scrolling text — mask applied HERE (inner layer) to avoid canvas compositor conflicts */}
             <div 
               id="marquee-scroller-container"
-              className="absolute inset-x-0 top-0 bottom-0 opacity-100 flex items-center overflow-hidden bg-transparent"
-              style={{ background: 'transparent !important' }}
+              className="absolute inset-0 flex items-center overflow-hidden"
+              style={{
+                WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgb(0,0,0) 30%, rgb(0,0,0) 70%, rgba(0,0,0,0) 100%)',
+                maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgb(0,0,0) 30%, rgb(0,0,0) 70%, rgba(0,0,0,0) 100%)',
+              }}
             >
-              
               <div
                 id="marquee-scroller-inner"
-                className="relative h-[1.2em] w-full bg-transparent"
+                className="relative h-[1.2em] w-full"
                 style={{
                   "--count": count,
                   "--speed": speed,
-                  background: 'transparent !important',
                 } as React.CSSProperties}
               >
                 {React.Children.map(children, (child, index) => (
                   <div
                     key={index}
                     id={`marquee-item-${index}`}
-                    className="h-[1.2em] flex items-center justify-start bg-transparent"
+                    className="h-[1.2em] flex items-center justify-start"
                     style={{
-                      background: 'transparent !important',
                       "--index": index,
                       "--origin": `calc((var(--count) - var(--index)) * 100%)`,
                       "--destination": `calc((var(--index) + 1) * -100%)`,

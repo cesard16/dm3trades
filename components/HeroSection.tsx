@@ -54,7 +54,7 @@ export default function HeroSection() {
       >
         <motion.div 
           id="hero-content-container"
-          className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-transparent"
+          className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
           style={{ opacity: scrollOpacity, y: scrollYOffset }}
         >
           <motion.div
@@ -68,15 +68,15 @@ export default function HeroSection() {
               <span id="hero-badge-text">{t('hero.badge')}</span>
             </div>
 
-            <div id="hero-title-container" className="flex justify-center mb-6 px-1 bg-transparent">
-              <h1 id="hero-main-title" className="text-3xl sm:text-5xl md:text-7xl font-extrabold text-white leading-tight tracking-tight bg-transparent">
+            <div id="hero-title-container" className="flex justify-center mb-6 px-1">
+              <h1 id="hero-main-title" className="text-3xl sm:text-5xl md:text-7xl font-extrabold text-white leading-tight tracking-tight">
                 <TextMarquee
                   id="hero-marquee"
                   key={language}
                   prefix={<span id="hero-title-prefix">Trading &</span>}
                   height="1.5em"
                   speed={1.5}
-                  className="justify-center bg-transparent"
+                  className="justify-center"
                 >
                   {marqueeWords.map((word, i) => (
                     <GradientText key={i} className="pb-1">{word}</GradientText>
@@ -85,7 +85,7 @@ export default function HeroSection() {
               </h1>
             </div>
 
-            <p id="hero-description" className="mt-4 text-sm sm:text-lg md:text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed px-4 bg-transparent">
+            <p id="hero-description" className="mt-4 text-sm sm:text-lg md:text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed px-4">
               {t('hero.desc')}
             </p>
 
