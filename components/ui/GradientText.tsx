@@ -11,7 +11,7 @@ export function GradientText({ className, children, ...props }: GradientTextProp
     <span
       id="gradient-text"
       className={cn(
-        'text-gradient font-bold drop-shadow-[0_0_15px_rgba(0,208,132,0.3)] bg-transparent',
+        'text-gradient font-bold drop-shadow-[0_0_15px_rgba(0,208,132,0.3)]',
         className
       )}
       {...props}
