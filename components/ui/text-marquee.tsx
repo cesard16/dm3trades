@@ -57,7 +57,11 @@ export function TextMarquee({
 
             {/* Absolute scrolling text */}
             <div
-               className="absolute inset-x-0 top-0 bottom-0 opacity-100 flex items-center overflow-hidden [mask-image:linear-gradient(rgba(0,0,0,0)_0%,rgb(0,0,0)_30%,rgb(0,0,0)_70%,rgba(0,0,0,0)_100%)]"
+               className="absolute inset-x-0 top-0 bottom-0 opacity-100 flex items-center overflow-hidden"
+               style={{
+                 WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%)',
+                 maskImage: 'linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%)'
+               }}
             >
               <div
                 className="relative h-[1.2em] w-full"
